@@ -1,0 +1,39 @@
+
+//Gen_Seive Algorithm to check count of prime numbers in range
+
+#include<bits/stdc++.h>
+using namespace std;
+long long N=25;
+vector<bool>primes(N,true);
+vector<int>prefix(N,0)
+ void is_prime()
+{
+    primes[0]=primes[1]=false;
+    for(int i=2;i*i<N;i++)
+    {
+        if(primes[i]==true)
+        {
+            for(int j=i*i;j<=N;j+=i)
+            {
+                primes[j]=false;
+            }
+        }
+    }
+    for(int i=1;i<N;i++)
+    {
+        prefix[i]=prefix[i-1]+primes[i];
+    }
+    //cout<<c;
+}
+int main()
+{
+    is_prime();
+    int Q;
+    cin>>Q;
+    while(Q--)
+    {
+        long long n;
+        cin>>n;
+        cout<<prefix[n];
+    }
+}
