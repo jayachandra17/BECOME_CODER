@@ -1,0 +1,24 @@
+                                       -----------------------------EUCLIDS ALGORITHM-------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int num1,num2;
+    int temp;
+    cin>>num1>>num2;
+    while(num2!=0)
+    {
+        if(num2>=num1){
+            num2=num2%num1;
+        }
+        else{
+            temp=num1;
+            num1=num2;
+            num2=temp;
+        }
+    }
+    cout<<num1;
+}
+OUTPUT:
+    30 100
+    10// 10 is the gcd for 30,100
